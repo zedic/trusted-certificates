@@ -33,7 +33,7 @@ set-content -value $bytes -encoding byte -path "$OUTPUT_PATH"
   - Select Import
   - Browse to the certificate
 
-![certmgr.png](crtmgr.png "crtmgr.png")
+![certmgr.png](https://github.com/zedic/trusted-certificates/blob/main/certmgr.png?raw=true)
 
  #### By default, git uses the OpenSSL Certificate store.  This command configures git to use the to use the local windows certificate store for SSL verification.
   
