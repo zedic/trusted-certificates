@@ -12,17 +12,20 @@
 ## Windows
 
 #### Export the certificate
- - Open Powershell and run the following commands to export a remote web certificate to a file.
+ - The following commands will export a certificate from a remote https website to a file.
+ - Update TARGET and OUTPUT_PATH if needed.
+ - Run the commands in **Powershell 5**
+ - NOTE: For some reason it will fail in Powershell 7
 ~~~
 # Update TARGET and OUTPUT_PATH as desired. 
 $TARGET="https://example.com"
-$OUTPUT_PATH="$HOME/example.com.crt"
+$OUTPUT_PATH="$HOME\example.com.crt"
 
 $webRequest = [Net.WebRequest]::Create("$TARGET")
 try { $webRequest.GetResponse() } catch {}
 $cert = $webRequest.ServicePoint.Certificate
 $bytes = $cert.Export([Security.Cryptography.X509Certificates.X509ContentType]::Cert)
-set-content -value $bytes -encoding byte -path "$OUTPUT_PATH"
+set-content -value $bytes -encoding byte -path $OUTPUT_PATH
 ~~~
 
 #### Use certmgr.msc to import the certificate
